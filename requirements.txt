@@ -1,3 +1,7 @@
 Flask
 gunicorn
-
+numpy
+pickle
+lime
+json
+os
