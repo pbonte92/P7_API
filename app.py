@@ -20,7 +20,7 @@ app = Flask(__name__)
 
 path = os.path.dirname(os.path.abspath(__file__))
 PARENT_DIR = os.path.join(path, os.pardir)
-dir_of_interest = os.path.join(PARENT_DIR, 'src')
+dir_of_interest = os.path.join(PARENT_DIR, 'Extra')
 
 # "C:/Users/paul.bonte/Formation OC/P7_Bonte_Paul/API/Extra"
 data = pd.read_csv(dir_of_interest  + "/data.csv")
