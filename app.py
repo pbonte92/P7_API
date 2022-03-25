@@ -48,7 +48,7 @@ def hello():
     """
     Ping the API.
     """
-    return jsonify({data.columns })
+    return data.columns
 
 """
 @app.route('/predict', methods=['POST'])
