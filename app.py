@@ -18,11 +18,13 @@ import os
 
 app = Flask(__name__)
 
-path = os.path.dirname(os.path.abspath(__file__))
+dirname = os.path.dirname(os.path.abspath(__file__))
+filename = os.path.join(dirname, '../data.csv')
+filename2 = os.path.join(dirname, '../model_credit.pkl')
 
 
-data = pd.read_csv(path  + "/data.csv")
-model = pickle.load(open(path  + "/model_credit.pkl","rb"))
+data = pd.read_csv(filename)
+model = pickle.load(open(filename2,"rb"))
 exp = data.drop('SK_ID_CURR', axis=1)
 
 explainer = lime_tabular.LimeTabularExplainer(
