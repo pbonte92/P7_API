@@ -19,12 +19,10 @@ import os
 app = Flask(__name__)
 
 path = os.path.dirname(os.path.abspath(__file__))
-PARENT_DIR = os.path.join(path, os.pardir)
-dir_of_interest = os.path.join(PARENT_DIR, 'Extra')
 
 # "C:/Users/paul.bonte/Formation OC/P7_Bonte_Paul/API/Extra"
-data = pd.read_csv(dir_of_interest  + "/data.csv")
-model = pickle.load(open(dir_of_interest  + "/model_credit.pkl","rb"))
+data = pd.read_csv(path  + "\\data.csv")
+model = pickle.load(open(path  + "/model_credit.pkl","rb"))
 exp = data.drop(columns = ["SK_ID_CURR"])
 
 explainer = lime_tabular.LimeTabularExplainer(
