@@ -19,8 +19,8 @@ import os
 app = Flask(__name__)
 
 dirname = os.path.dirname(os.path.abspath(__file__))
-filename = os.path.join(dirname, '../data.csv')
-filename2 = os.path.join(dirname, '../model_credit.pkl')
+filename = os.path.join(dirname, '/data.csv')
+filename2 = os.path.join(dirname, '/model_credit.pkl')
 
 
 data = pd.read_csv(filename)
