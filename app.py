@@ -21,7 +21,7 @@ app = Flask(__name__)
 path = os.path.dirname(os.path.abspath(__file__))
 
 
-data = pd.read_csv(path  + "//data.csv")
+data = pd.read_csv(path  + "/data.csv")
 model = pickle.load(open(path  + "/model_credit.pkl","rb"))
 exp = data.drop('SK_ID_CURR', axis=1)
 
