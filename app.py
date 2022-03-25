@@ -22,7 +22,7 @@ path = os.path.dirname(os.path.abspath(__file__))
 
 
 data = pd.read_csv(path  + "/data.csv")
-datalist = data.columns
+datalist = (data.columns.tolist())
 """
 model = pickle.load(open(path  + "/model_credit.pkl","rb"))
 exp = data.drop('SK_ID_CURR', axis=1)
@@ -85,5 +85,5 @@ def explain() :
 """    
     
 if __name__ == "__main__":
-    port = os.environ.get("PORT" , 5000)
-    app.run(debug= False , host="0.0.0.0" , port = port)
+    
+    app.run()
