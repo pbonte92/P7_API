@@ -17,12 +17,13 @@ import os
 
 
 app = Flask(__name__)
-"""
+
 path = os.path.dirname(os.path.abspath(__file__))
 
-# "C:/Users/paul.bonte/Formation OC/P7_Bonte_Paul/API/Extra"
+
 data = pd.read_csv(path  + "//data.csv")
 model = pickle.load(open(path  + "/model_credit.pkl","rb"))
+"""
 exp = data.drop('SK_ID_CURR', axis=1)
 
 explainer = lime_tabular.LimeTabularExplainer(
