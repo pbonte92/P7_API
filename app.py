@@ -23,7 +23,6 @@ path = os.path.dirname(os.path.abspath(__file__))
 
 data = pd.read_csv(path  + "//data.csv")
 model = pickle.load(open(path  + "/model_credit.pkl","rb"))
-"""
 exp = data.drop('SK_ID_CURR', axis=1)
 
 explainer = lime_tabular.LimeTabularExplainer(
@@ -42,15 +41,15 @@ def filter_dataset(df, client_id):
 def get_prediction(model , X):
     resultat = model.predict_proba(X)[0]
     return resultat
-"""
+
 @app.route("/")
 def hello():
     """
     Ping the API.
     """
-    return data.columns
+    return jsonify({"text":"Hello, the API is up and running..." })
 
-"""
+
 @app.route('/predict', methods=['POST'])
 def predict():
     
@@ -83,8 +82,6 @@ def explain() :
     return jsonify(explained)
     
     
-    
-"""
 if __name__ == "__main__":
-    port = os.environ.get("PORT" , 5000)
-    app.run(debug= False , host="0.0.0.0" , port = port)
+    
+    app.run()
