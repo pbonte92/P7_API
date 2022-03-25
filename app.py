@@ -18,13 +18,13 @@ import os
 
 app = Flask(__name__)
 
-dirname = os.path.dirname(os.path.abspath(__file__))
-filename = os.path.join(dirname, '/data.csv')
-filename2 = os.path.join(dirname, '/model_credit.pkl')
+path = os.path.dirname(os.path.abspath(__file__))
 
 
-data = pd.read_csv(filename)
-model = pickle.load(open(filename2,"rb"))
+data = pd.read_csv(path  + "/data.csv")
+datalist = data.columns
+"""
+model = pickle.load(open(path  + "/model_credit.pkl","rb"))
 exp = data.drop('SK_ID_CURR', axis=1)
 
 explainer = lime_tabular.LimeTabularExplainer(
@@ -43,15 +43,15 @@ def filter_dataset(df, client_id):
 def get_prediction(model , X):
     resultat = model.predict_proba(X)[0]
     return resultat
-
+"""
 @app.route("/")
 def hello():
     """
     Ping the API.
     """
-    return jsonify({"text":"Hello, the API is up and running..." })
+    return jsonify(datalist)
 
-
+"""
 @app.route('/predict', methods=['POST'])
 def predict():
     
@@ -82,7 +82,7 @@ def explain() :
     explained = pd.DataFrame.to_dict(explained)
       
     return jsonify(explained)
-    
+"""    
     
 if __name__ == "__main__":
     
