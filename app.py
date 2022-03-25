@@ -23,6 +23,7 @@ path = os.path.dirname(os.path.abspath(__file__))
 
 data = pd.read_csv(path  + "/data.csv")
 datalist = (data.columns.tolist())
+"""
 model = pickle.load(open(path  + "/model_credit.pkl","rb"))
 exp = data.drop('SK_ID_CURR', axis=1)
 
@@ -42,7 +43,7 @@ def filter_dataset(df, client_id):
 def get_prediction(model , X):
     resultat = model.predict_proba(X)[0]
     return resultat
-
+"""
 @app.route("/")
 def hello():
     """
@@ -50,7 +51,7 @@ def hello():
     """
     return jsonify(datalist)
 
-
+"""
 @app.route('/predict', methods=['POST'])
 def predict():
     
@@ -81,7 +82,7 @@ def explain() :
     explained = pd.DataFrame.to_dict(explained)
       
     return jsonify(explained)
- 
+ """
     
 if __name__ == "__main__":
     port = os.environ.get("PORT" , 5000)
